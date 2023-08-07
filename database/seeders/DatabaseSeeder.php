@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Practice;
+use App\Models\Movie;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,7 +18,6 @@ class DatabaseSeeder extends Seeder
         //     SheetTableSeeder::class,
         // ]);
 
-        Practice::factory(10)->create();
-
+        Movie::factory(10)->create();
     }
 }
