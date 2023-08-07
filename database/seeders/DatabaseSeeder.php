@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Practice;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,8 +14,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call([
-            SheetTableSeeder::class,
-        ]);
+        // $this->call([
+        //     SheetTableSeeder::class,
+        // ]);
+
+        Practice::factory(10)->create();
+
     }
 }
