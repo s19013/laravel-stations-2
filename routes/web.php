@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PracticeController;
 use App\Http\Controllers\MovieController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +26,7 @@ Route::get('/practice3', [PracticeController::class,'sample3']);
 Route::get('/getPractice',  [PracticeController::class,'getPractice']);
 
 Route::get('/movies',  [MovieController::class,'index']);
+
+Route::prefix('admin')->group(function () {
+    Route::get('/movies',  [AdminController::class,'index']);
+});
