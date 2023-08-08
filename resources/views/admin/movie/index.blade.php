@@ -18,6 +18,11 @@ table td{
         <tbody>
             @foreach ($movies as $movie)
             <tr>
+            <td>
+                <a href="/admin/movies/{{$movie->id}}/edit">
+                    編集
+                </a>
+            </td>
             <td>タイトル: {{ $movie->title }}</td>
             {{-- <tr><td><img src={{ $movie->image_url }} alt=""></td></tr> --}}
             <td>{{ $movie->image_url }}</td>
