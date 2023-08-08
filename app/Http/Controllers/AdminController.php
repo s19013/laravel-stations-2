@@ -6,6 +6,7 @@ use App\Models\Movie;
 use Illuminate\Http\Request;
 
 use App\Http\Requests\CreateMovieRequest;
+use App\Http\Requests\UpdateMovieRequest;
 
 use App\Http\Repository\MovieRepository;
 
@@ -33,6 +34,16 @@ class AdminController extends Controller
     public function store(CreateMovieRequest $request)
     {
         $this->movieRepository->store($request);
+        return redirect('admin/movies');
+    }
+
+    public function edit(Request $request) {
+        $movie = Movie::find((int) $request->id);
+        return view('admin/movie/edit',['movie' => $movie]);
+    }
+
+    public function update(UpdateMovieRequest $request) {
+        $this->movieRepository->update($request);
         return redirect('admin/movies');
     }
 }
