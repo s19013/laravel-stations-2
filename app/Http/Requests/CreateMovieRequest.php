@@ -24,7 +24,7 @@ class CreateMovieRequest extends FormRequest
 	    // キャストしたデータをarra_mergeで上書き
         return array_merge($validated,[
             'published_year' => (int) $this->published_year,
-	        'is_showing'     => (int) $this->is_public
+	        'is_showing' => (int) $this->is_public
         ]);
     }
 
