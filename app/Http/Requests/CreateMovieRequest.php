@@ -13,7 +13,19 @@ class CreateMovieRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return false;
+    }
+
+    //  一部を型変換する
+    public function validated()
+    {
+        // バリデーションチェックを通ったデータだけ取得
+	    $validated = $this->validator->validated();
+	    // キャストしたデータをarra_mergeで上書き
+        return array_merge($validated,[
+            'published_year' => (int) $this->published_year,
+	        'is_showing'     => (int) $this->is_public
+        ]);
     }
 
     /**
@@ -29,7 +41,7 @@ class CreateMovieRequest extends FormRequest
             'published_year' => ['required', 'gte:1900'],
             'description' => ['required'],
             'is_showing' => ['required', 'boolean'],
-            'genre' => ['required'],
+            // 'genre' => ['required'],
         ];
     }
 }
