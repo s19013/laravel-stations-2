@@ -18,6 +18,6 @@ class DatabaseSeeder extends Seeder
         //     SheetTableSeeder::class,
         // ]);
 
-        Movie::factory(10)->create();
+        Movie::factory(25)->create();
     }
 }
