@@ -5,7 +5,7 @@ namespace App\Http\Repository;
 use App\Models\Movie;
 use Illuminate\Http\Request;
 
-use App\Http\Request\CreateMovieRequest;
+use App\Http\Requests\CreateMovieRequest;
 
 class MovieRepository
 {
