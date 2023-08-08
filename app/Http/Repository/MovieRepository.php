@@ -13,22 +13,22 @@ class MovieRepository
     public function store(CreateMovieRequest $request)
     {
         Movie::create([
-            'title'    => $request->input('title'),
-            'image_url' => $request->input('image_url'),
-            'published_year' => $request->input('published_year'),
-            'is_showing'     => $request->input('is_showing'),
-            'description'    => $request->input('description'),
+            'title'    => $request->title,
+            'image_url' => $request->image_url,
+            'published_year' => $request->published_year,
+            'is_showing'     => $request->is_showing,
+            'description'    => $request->description,
         ]);
     }
 
     public function update(UpdateMovieRequest $request){
-        Movie::where('id','=',$request->input('id'))
+        Movie::where('id','=',$request->id)
         ->update([
-            'title'    => $request->input('title'),
-            'image_url' => $request->input('image_url'),
-            'published_year' => $request->input('published_year'),
-            'is_showing'     => $request->input('is_showing'),
-            'description'    => $request->input('description'),
+            'title'    => $request->title,
+            'image_url' => $request->image_url,
+            'published_year' => $request->published_year,
+            'is_showing'     => $request->is_showing,
+            'description'    => $request->description,
         ]);
     }
 }
