@@ -23,11 +23,11 @@ class AdminController extends Controller
     public function index()
     {
         $movies = Movie::all();
-        return view('admin/index', ['movies' => $movies]);
+        return view('admin/movie/index', ['movies' => $movies]);
     }
 
     public function create() {
-        return view('admin/create');
+        return view('admin/movie/create');
     }
 
     public function store(CreateMovieRequest $request)
