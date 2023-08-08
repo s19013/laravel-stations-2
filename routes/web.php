@@ -25,7 +25,9 @@ Route::get('/practice2', [PracticeController::class,'sample2']);
 Route::get('/practice3', [PracticeController::class,'sample3']);
 Route::get('/getPractice',  [PracticeController::class,'getPractice']);
 
-Route::get('/movies',  [MovieController::class,'index']);
+Route::prefix('/movies')->group(function () {
+    Route::get('/',  [MovieController::class,'index']);
+});
 
 Route::prefix('admin/movies')->group(function () {
     Route::get('/',  [AdminController::class,'index']);
