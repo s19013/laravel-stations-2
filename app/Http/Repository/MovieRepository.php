@@ -31,4 +31,13 @@ class MovieRepository
             'description'    => $request->description,
         ]);
     }
+
+    public function destroy(Request $request)  {
+        Movie::where('id', '=',(int)$request->id)->delete();
+    }
+
+    public function isExists(Request $request)
+    {
+        return Movie::where('id','=',(int)$request->id)->exists();
+    }
 }

@@ -33,6 +33,7 @@ class AdminController extends Controller
 
     public function store(CreateMovieRequest $request)
     {
+        // try_catch必要か?
         $this->movieRepository->store($request);
         return redirect('admin/movies');
     }
@@ -43,7 +44,19 @@ class AdminController extends Controller
     }
 
     public function update(UpdateMovieRequest $request) {
+        // try_catch必要か?
         $this->movieRepository->update($request);
         return redirect('admin/movies');
+    }
+
+    public function destroy(Request $request) {
+        if ($this->movieRepository->isExists($request)) {
+            $this->movieRepository->destroy($request);
+            return redirect('admin/movies');
+        }
+
+        // return redirect('admin/movies',404);
+        return \App::abort(404);
+
     }
 }
