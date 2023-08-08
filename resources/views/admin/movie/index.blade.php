@@ -23,6 +23,13 @@ table td{
                     編集
                 </a>
             </td>
+            <td>
+                <form action="/admin/movies/{{$movie->id}}/destroy" method="post" onsubmit="return finalCheck()">
+                    @csrf
+                    @method('DELETE')
+                    <input type="submit" value="削除">
+                </form>
+            </td>
             <td>タイトル: {{ $movie->title }}</td>
             {{-- <tr><td><img src={{ $movie->image_url }} alt=""></td></tr> --}}
             <td>{{ $movie->image_url }}</td>
@@ -39,4 +46,10 @@ table td{
         </tbody>
     </table>
 </body>
+<script>
+    // 確認ダイアログ
+    function finalCheck() {
+        window.confirm("削除しますか?");
+    }
+</script>
 </html>
