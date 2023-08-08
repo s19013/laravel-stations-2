@@ -13,9 +13,9 @@ class MovieRepository
     {
         Movie::create([
             'title'    => $request->input('title'),
-            'image_url'    => $request->input('image_url'),
-            'published_year'    => $request->input('published_year'),
-            'is_showing'    => ($request->input('is_showing') ?? 0),
+            'image_url' => $request->input('image_url'),
+            'published_year' => $request->input('published_year'),
+            'is_showing'     => $request->input('is_showing'),
             'description'    => $request->input('description'),
         ]);
     }
