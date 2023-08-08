@@ -31,4 +31,6 @@ Route::prefix('admin/movies')->group(function () {
     Route::get('/',  [AdminController::class,'index']);
     Route::get('/create',  [AdminController::class,'create']);
     Route::post('/store',  [AdminController::class,'store']);
+    Route::get('/{id}/edit',  [AdminController::class,'edit']);
+    Route::patch('/{id}/update',  [AdminController::class,'update']);
 });
