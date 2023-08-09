@@ -16,29 +16,48 @@
     @endif
     <form action="{{ url('/admin/movies/store')}}" method="POST" >
         {{ csrf_field() }}
-        <label>
-            タイトル
-            <input type="text" name="title">
-        </label>
-        <label >
-            画像url
-            <input type="url" name="image_url">
-        </label>
-        <label >
-            公開年
-            <input type="number" name="published_year">
-        </label>
-        <label >
-            公開中
-            <input name="is_showing" type="hidden" value="0">
-            <input type="checkbox" name="is_showing" value="1">
-        </label>
+        <div>
+            <label>
+                タイトル
+                <input type="text" name="title" required >
+            </label>
+        </div>
 
-        <label >
-            <textarea name="description" id="" cols="30" rows="10">
+        <div>
+            <label>
+                ジャンル
+                <input type="text" name="genere" required >
+            </label>
+        </div>
 
-            </textarea>
-        </label>
+        <div>
+            <label >
+                画像url
+                <input type="url" name="image_url" required >
+            </label>
+        </div>
+
+        <div>
+            <label >
+                公開年
+                <input type="number" name="published_year" required >
+            </label>
+        </div>
+
+        <div>
+            <label >
+                公開中
+                <input name="is_showing" type="hidden" value="0">
+                <input type="checkbox" name="is_showing" value="1">
+            </label>
+        </div>
+
+        <div>
+            <label >
+                <textarea name="description" id="" cols="30" rows="10">
+                </textarea>
+            </label>
+        </div>
 
         <button type="submit">
             追加
