@@ -9,6 +9,7 @@ use App\Http\Requests\CreateMovieRequest;
 use App\Http\Requests\UpdateMovieRequest;
 
 use App\Tool\SearchToolKit;
+use DB;
 
 class MovieRepository
 {
@@ -20,6 +21,7 @@ class MovieRepository
             'published_year' => $request->published_year,
             'is_showing'     => $request->is_showing,
             'description'    => $request->description,
+            'genere_id' => $request->genereId,
         ]);
     }
 
@@ -31,6 +33,7 @@ class MovieRepository
             'published_year' => $request->published_year,
             'is_showing'     => $request->is_showing,
             'description'    => $request->description,
+            'genere_id' => $request->genereId,
         ]);
     }
 
@@ -75,5 +78,13 @@ class MovieRepository
         // 取得
         return $query->paginate(20);
     }
+
+    // public function getTheData(Request $request) {
+    //     return DB::table('movies')
+    //     ->select('movies.*','generes.name as genere')
+    //     ->leftJoin('generes','movies.genere','=','generes.id')
+    //     ->where('movies.id','=',(int)$request->id)
+    //     ->get();
+    // }
 
 }
