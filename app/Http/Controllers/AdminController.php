@@ -63,7 +63,6 @@ class AdminController extends Controller
             return redirect('admin/movies');
         }
 
-        dd($this->genreRepository->storeAndReturnId($request->genre));
         DB::transaction(function () use($request){
             $this->genreRepository->store($request->genre);
             $request->genreId = $this->genreRepository->returnIdFromName($request->genre);
