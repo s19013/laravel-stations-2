@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\Movie;
+use App\Models\Genere;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,6 +19,7 @@ class DatabaseSeeder extends Seeder
         //     SheetTableSeeder::class,
         // ]);
 
+        Genere::factory(10)->create();
         Movie::factory(25)->create();
     }
 }
