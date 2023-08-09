@@ -16,7 +16,7 @@ class AddForeginToMoviesTable extends Migration
         Schema::table('movies', function (Blueprint $table) {
             $table->unsignedBigInteger('genere');
 
-            $table->foreign('genere')->references('id')->on('geners');
+            $table->foreign('genere')->references('id')->on('generes');
         });
     }
 
