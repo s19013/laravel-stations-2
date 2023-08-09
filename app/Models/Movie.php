@@ -12,7 +12,7 @@ class Movie extends Model
     protected $guarded = ['id','created_at','updated_at'];
 
     // リレーション
-    public function genere()  {
-        return $this->belongsTo(Genere::class);
+    public function genre()  {
+        return $this->belongsTo(Genre::class);
     }
 }

@@ -31,6 +31,7 @@ table td{
                 </form>
             </td>
             <td>タイトル: {{ $movie->title }}</td>
+            <td>ジャンル: {{ $movie->genre->name }}</td>
             {{-- <tr><td><img src={{ $movie->image_url }} alt=""></td></tr> --}}
             <td>{{ $movie->image_url }}</td>
             <td>公開年: {{ $movie->published_year }}</td>

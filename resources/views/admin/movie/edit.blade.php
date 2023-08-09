@@ -28,7 +28,7 @@
         <div>
             <label >
                 ジャンル
-                <input name='genere' type="text" value="{{old('genere',$movie->genere->name)}}" required >
+                <input name='genre' type="text" value="{{old('genre',$movie->genre->name)}}" required >
             </label>
         </div>
 

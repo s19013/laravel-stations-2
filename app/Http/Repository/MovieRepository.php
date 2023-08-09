@@ -21,7 +21,7 @@ class MovieRepository
             'published_year' => $request->published_year,
             'is_showing'     => $request->is_showing,
             'description'    => $request->description,
-            'genere_id' => $request->genereId,
+            'genre_id' => $request->genreId,
         ]);
     }
 
@@ -33,7 +33,7 @@ class MovieRepository
             'published_year' => $request->published_year,
             'is_showing'     => $request->is_showing,
             'description'    => $request->description,
-            'genere_id' => $request->genereId,
+            'genre_id' => $request->genreId,
         ]);
     }
 
@@ -81,8 +81,8 @@ class MovieRepository
 
     // public function getTheData(Request $request) {
     //     return DB::table('movies')
-    //     ->select('movies.*','generes.name as genere')
-    //     ->leftJoin('generes','movies.genere','=','generes.id')
+    //     ->select('movies.*','genres.name as genre')
+    //     ->leftJoin('genres','movies.genre','=','genres.id')
     //     ->where('movies.id','=',(int)$request->id)
     //     ->get();
     // }

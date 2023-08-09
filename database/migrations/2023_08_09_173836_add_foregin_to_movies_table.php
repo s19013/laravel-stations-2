@@ -14,9 +14,9 @@ class AddForeginToMoviesTable extends Migration
     public function up()
     {
         Schema::table('movies', function (Blueprint $table) {
-            $table->unsignedBigInteger('genere_id');
+            $table->unsignedBigInteger('genre_id');
 
-            $table->foreign('genere_id')->references('id')->on('generes');
+            $table->foreign('genre_id')->references('id')->on('genres');
         });
     }
 
@@ -28,8 +28,8 @@ class AddForeginToMoviesTable extends Migration
     public function down()
     {
         Schema::table('movies', function (Blueprint $table) {
-            $table->dropForeign('genere_id');
-            $table->dropColumn('genere_id');
+            $table->dropForeign('genre_id');
+            $table->dropColumn('genre_id');
         });
     }
 }

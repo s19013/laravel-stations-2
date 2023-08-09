@@ -9,24 +9,24 @@ use App\Http\Requests\CreateMovieRequest;
 use App\Http\Requests\UpdateMovieRequest;
 
 use App\Http\Repository\MovieRepository;
-use App\Http\Repository\GenereRepository;
+use App\Http\Repository\GenreRepository;
 
 use DB;
 
 class AdminController extends Controller
 {
     private $movieRepository;
-    private $genereRepository;
+    private $genreRepository;
 
     public function __construct()
     {
         $this->movieRepository  = new MovieRepository();
-        $this->genereRepository = new GenereRepository();
+        $this->genreRepository = new GenreRepository();
     }
 
     public function index()
     {
-        $movies = Movie::with('genere')->get();
+        $movies = Movie::with('genre')->get();
         return view('admin/movie/index', ['movies' => $movies]);
     }
 
@@ -36,13 +36,13 @@ class AdminController extends Controller
 
     public function store(CreateMovieRequest $request)
     {
-        if ($this->genereRepository->isExists($request->genere)) {
+        if ($this->genreRepository->isExists($request->genre)) {
             $this->movieRepository->store($request);
             return redirect('admin/movies');
         }
 
         DB::transaction(function () use($request){
-            $request->genereId = $this->genereRepository->storeAndReturnId($request->genere);
+            $request->genreId = $this->genreRepository->storeAndReturnId($request->genre);
             $this->movieRepository->store($request);
         });
         return redirect('admin/movies');
@@ -55,13 +55,13 @@ class AdminController extends Controller
 
     public function update(UpdateMovieRequest $request) {
         // try_catch必要か?
-        if ($this->genereRepository->isExists($request->genere)) {
+        if ($this->genreRepository->isExists($request->genre)) {
             $this->movieRepository->update($request);
             return redirect('admin/movies');
         }
 
         DB::transaction(function () use($request){
-            $request->genereId = $this->genereRepository->storeAndReturnId($request->genere);
+            $request->genreId = $this->genreRepository->storeAndReturnId($request->genre);
             $this->movieRepository->update($request);
         });
         return redirect('admin/movies');

@@ -26,7 +26,7 @@
         <div>
             <label>
                 ジャンル
-                <input type="text" name="genere" required >
+                <input type="text" name="genre" required >
             </label>
         </div>
 

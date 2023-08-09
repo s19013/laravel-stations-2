@@ -2,20 +2,20 @@
 declare(strict_types=1);
 namespace App\Http\Repository;
 
-use App\Models\Genere;
+use App\Models\Genre;
 use Illuminate\Http\Request;
 
-class GenereRepository {
+class GenreRepository {
 
     public function storeAndReturnId(string $name) {
-        $genere = Genere::create([
+        $genre = Genre::create([
             'name'    => $name,
         ]);
 
-        return $genere->id;
+        return $genre->id;
     }
 
     public function isExists(string $name)  {
-        return Genere::where('name','=',$name)->exists();
+        return Genre::where('name','=',$name)->exists();
     }
 }
