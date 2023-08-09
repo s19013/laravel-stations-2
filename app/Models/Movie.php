@@ -10,4 +10,9 @@ class Movie extends Model
     use HasFactory;
 
     protected $guarded = ['id','created_at','updated_at'];
+
+    // リレーション
+    public function genere()  {
+        return $this->belongsTo(Genere::class);
+    }
 }
