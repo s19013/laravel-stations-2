@@ -37,12 +37,14 @@ class AdminController extends Controller
     public function store(CreateMovieRequest $request)
     {
         if ($this->genreRepository->isExists($request->genre)) {
+            $request->genreId = $this->genreRepository->returnIdFromName($request->genre);
             $this->movieRepository->store($request);
             return redirect('admin/movies');
         }
 
         DB::transaction(function () use($request){
-            $request->genreId = $this->genreRepository->storeAndReturnId($request->genre);
+            $this->genreRepository->store($request->genre);
+            $request->genreId = $this->genreRepository->returnIdFromName($request->genre);
             $this->movieRepository->store($request);
         });
         return redirect('admin/movies');
@@ -56,12 +58,15 @@ class AdminController extends Controller
     public function update(UpdateMovieRequest $request) {
         // try_catch必要か?
         if ($this->genreRepository->isExists($request->genre)) {
+            $request->genreId = $this->genreRepository->returnIdFromName($request->genre);
             $this->movieRepository->update($request);
             return redirect('admin/movies');
         }
 
+        dd($this->genreRepository->storeAndReturnId($request->genre));
         DB::transaction(function () use($request){
-            $request->genreId = $this->genreRepository->storeAndReturnId($request->genre);
+            $this->genreRepository->store($request->genre);
+            $request->genreId = $this->genreRepository->returnIdFromName($request->genre);
             $this->movieRepository->update($request);
         });
         return redirect('admin/movies');
