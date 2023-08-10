@@ -6,14 +6,17 @@ use App\Models\Movie;
 use Illuminate\Http\Request;
 
 use App\Http\Repository\MovieRepository;
+use App\Http\Repository\ScheduleRepository;
 
 class MovieController extends Controller
 {
     private $movieRepository;
+    private $scheduleRepository;
 
     public function __construct()
     {
         $this->movieRepository  = new MovieRepository();
+        $this->scheduleRepository  = new ScheduleRepository();
     }
 
     public function index(Request $request)
@@ -30,6 +33,16 @@ class MovieController extends Controller
                 'keyword' => $request->keyword,
                 'is_showing' => $request->is_showing
             ]
+        ]);
+    }
+
+    public function specifics(Request $request) {
+        $movie = $this->movieRepository->getSpecifics((int) $request->id);
+        $schedules = $this->scheduleRepository->allScheduleOfTheMovie((int) $request->id);
+
+        return view('movie/specifics',[
+            'movie' => $movie,
+            'schedules' => $schedules
         ]);
     }
 }
