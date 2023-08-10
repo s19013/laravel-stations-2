@@ -79,6 +79,12 @@ class MovieRepository
         return $query->paginate(20);
     }
 
+    public function getSpecifics(Request $request) {
+        return Movie::select("*")
+        ->where('id','=',$request->id)
+        ->first();
+    }
+
     // public function getTheData(Request $request) {
     //     return DB::table('movies')
     //     ->select('movies.*','genres.name as genre')
