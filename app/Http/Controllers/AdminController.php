@@ -26,7 +26,7 @@ class AdminController extends Controller
 
     public function index()
     {
-        $movies = Movie::with(['genre','schedule'])->get();
+        $movies = Movie::with(['genre','schedules'])->get();
         return view('admin/movie/index', ['movies' => $movies]);
     }
 
