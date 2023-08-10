@@ -28,6 +28,7 @@ Route::get('/getPractice',  [PracticeController::class,'getPractice']);
 
 Route::prefix('/movies')->group(function () {
     Route::get('/',  [MovieController::class,'index']);
+    Route::get('/{id}',  [MovieController::class,'specifics']);
 });
 
 Route::get('/sheets',[SheetController::class,'master']);
