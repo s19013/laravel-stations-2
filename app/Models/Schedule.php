@@ -10,6 +10,7 @@ class schedule extends Model
     use HasFactory;
 
     protected $guarded = ['id','created_at','updated_at'];
+    protected $dates = ['start_time','end_time'];//これでformatが使える
 
     // リレーション
     public function movie()
