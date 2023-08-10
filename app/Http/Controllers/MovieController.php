@@ -37,8 +37,8 @@ class MovieController extends Controller
     }
 
     public function specifics(Request $request) {
-        $movie = $this->movieRepository->getSpecifics((int) $request->id);
-        $schedules = $this->scheduleRepository->allScheduleOfTheMovie((int) $request->id);
+        $movie = $this->movieRepository->getSpecifics($request);
+        $schedules = $this->scheduleRepository->allScheduleOfTheMovie($request);
 
         return view('movie/specifics',[
             'movie' => $movie,

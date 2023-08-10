@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 
 class ScheduleRepository {
 
-    public function allScheduleOfTheMovie(int $id) {
+    public function allScheduleOfTheMovie(Request $request) {
         return Schedule::select('start_time','end_time')
-        ->where('movie_id','=',$id)
+        ->where('movie_id','=',$request->id)
         ->orderBy('start_time')
         ->get();
     }

@@ -38,12 +38,12 @@ class MovieRepository
     }
 
     public function destroy(Request $request)  {
-        Movie::where('id', '=',(int)$request->id)->delete();
+        Movie::where('id', '=',$request->id)->delete();
     }
 
     public function isExists(Request $request)
     {
-        return Movie::where('id','=',(int)$request->id)->exists();
+        return Movie::where('id','=',$request->id)->exists();
     }
 
     public static function search(Request $request)
