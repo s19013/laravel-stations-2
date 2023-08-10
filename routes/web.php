@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PracticeController;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\SheetController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,8 @@ Route::get('/getPractice',  [PracticeController::class,'getPractice']);
 Route::prefix('/movies')->group(function () {
     Route::get('/',  [MovieController::class,'index']);
 });
+
+Route::get('/sheets',[SheetController::class,'master']);
 
 Route::prefix('admin/movies')->group(function () {
     Route::get('/',  [AdminController::class,'index']);
