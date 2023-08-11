@@ -13,7 +13,7 @@
     <img width="300rem" src="{{$movie->image_url}}" alt="">
     <p>{{$movie->published_year}}</p>
     <p>{{$movie->description}}</p>
-    <p> {{ $movie->is_showing ? '公開中' : '公開予定' }} </p>
+    <p> {{ $movie->is_showing ? '上映中' : '上映予定' }} </p>
     <a href="/admin/movies/{{$movie->id}}/schedules/create">
         <button type="button" >追加</button>
     </a>
