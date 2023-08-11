@@ -46,7 +46,7 @@ class MovieRepository
         return Movie::where('id','=',$request->id)->exists();
     }
 
-    public static function search(Request $request)
+    public function search(Request $request)
     {
         $searchToolKit = new searchToolKit();
 
