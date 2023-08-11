@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Rules\MoreThanSomeMinutes;
 
 class CreateScheduleRequest extends FormRequest
 {
@@ -26,9 +27,9 @@ class CreateScheduleRequest extends FormRequest
         return [
             'movie_id' => ['required'],
             'start_time_date' => ['required', 'date_format:Y-m-d', 'before_or_equal:end_time_date'],
-            'start_time_time' => ['required', 'date_format:H:i'],
+            'start_time_time' => ['required', 'date_format:H:i','before:end_time_time',new MoreThanSomeMinutes(5,$this->end_time_time)],
             'end_time_date' => ['required', 'date_format:Y-m-d', 'after_or_equal:start_time_date'],
-            'end_time_time' => ['required', 'date_format:H:i'],
+            'end_time_time' => ['required', 'date_format:H:i','after:start_time_time',new MoreThanSomeMinutes(5,$this->start_time_time)],
         ];
     }
 }
