@@ -81,4 +81,10 @@ class AdminController extends Controller
         return \App::abort(404);
 
     }
+
+    public function specifics(Request $request) {
+        return view('admin.movie.specifics', [
+            'movie' => Movie::with('schedules')->find($request->id)
+        ]);
+    }
 }
