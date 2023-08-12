@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PracticeController;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\SheetController;
+use App\Http\Controllers\ReservationController;
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminScheduleController;
@@ -27,6 +28,7 @@ Route::get('/practice',  [PracticeController::class,'sample']);
 Route::get('/practice2', [PracticeController::class,'sample2']);
 Route::get('/practice3', [PracticeController::class,'sample3']);
 Route::get('/getPractice',  [PracticeController::class,'getPractice']);
+
 
 Route::prefix('admin/movies')->group(function () {
     Route::get('/',  [AdminController::class,'index']);
@@ -55,3 +57,12 @@ Route::prefix('/movies')->group(function () {
 });
 
 Route::get('/sheets',[SheetController::class,'master']);
+
+// 予約
+Route::get('/movies/{movieId}/schedules/{scheduleId}/reservations/create',  [ReservationController::class,'create']);
+Route::get('/movies/{movieId}/schedules/{scheduleId}/sheets',  [SheetController::class,'index']);
+
+Route::prefix('/reservations')->group(function () {
+    Route::post('/store',  [ReservationController::class,'store']);
+});
+
