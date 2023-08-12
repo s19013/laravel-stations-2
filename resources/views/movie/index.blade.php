@@ -29,7 +29,7 @@
     </div>
     <ul>
     @foreach ($movies as $movie)
-        <li><a href="movies/{{$movie->id}}">タイトル: {{ $movie->title }}</a></li>
+        <li><a href="/movies/{{$movie->id}}">タイトル: {{ $movie->title }}</a></li>
         {{-- <li><img src={{ $movie->image_url }} alt=""></li> --}}
         <li>{{ $movie->image_url }}</li>
     @endforeach
