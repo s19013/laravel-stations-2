@@ -16,7 +16,16 @@ class ReservationRepository {
             'sheet_id' => $request->sheet_id,
             'email' => $request->email,
             'name' => $request->name,
-            'is_canceled' => $request->is_canceled ?? false,
+            'is_canceled' => false, // ここは最初は必ずfalse
         ]);
+    }
+
+    public function isExists(CreateReservationRequest $request) {
+
+        return Reservation::where('schedule_id','=',$request->schedule_id)
+        ->where('sheet_id','=',$request->sheet_id)
+        ->where('email','=',$request->email)
+        ->where('name','=',$request->name)
+        ->exists();
     }
 }
