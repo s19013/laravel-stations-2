@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
         ]);
         // Genre::factory(10)->create();
         $now = CarbonImmutable::now();
-        $movie = Movie::factory();
+        $movie = Movie::factory()->create();
         Schedule::factory()->create([
             'movie_id' => $movie->id,
             'start_time' => $now->addHours(10),
