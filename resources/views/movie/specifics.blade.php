@@ -6,9 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Practice</title>
 </head>
+<style>
+    table td{
+        border-collapse: collapse;
+        border: 1px solid #000000;
+        padding: 5px;
+    }
+</style>
 <body>
 
-    <img src="{{$movie->image_url}}" alt="">
+    <img width="300rem" src="{{$movie->image_url}}" alt="">
     <p>{{$movie->title}}</p>
     <p>{{$movie->genre->name}}</p>
     <p>{{$movie->published_year}}</p>
@@ -16,10 +23,12 @@
     <p>{{$movie->description}}</p>
 
     <table>
+        <th></th>
         <th>開始時刻</th>
         <th>終了時刻</th>
         @foreach ($schedules as $schedule)
         <tr>
+            <td><a href="/movies/{{$movie->id}}/schedules/{{$schedule->id}}/sheets">座席を予約する</a></td>
             <td>{{$schedule->start_time->format('H:i')}}</td>
             <td>{{$schedule->end_time->format('H:i')}}</td>
         </tr>
