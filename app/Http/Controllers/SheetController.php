@@ -44,8 +44,8 @@ class SheetController extends Controller
         return view('sheet.index', [
             "sheets" => Sheet::all(),
             "reserved" => $reserved,
-            "movie_id" => $request->movie_id,
-            "schedule_id" => $request->schedule_id,
+            "movieId" => $request->movieId,
+            "scheduleId" => $request->scheduleId,
             "date" => $request->date
         ]);
     }
