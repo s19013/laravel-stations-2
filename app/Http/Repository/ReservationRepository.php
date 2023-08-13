@@ -28,4 +28,18 @@ class ReservationRepository {
         ->where('name','=',$request->name)
         ->exists();
     }
+
+    // すでに席がとられてないか
+    public function isReserved(Request $request) {
+        return Reservation::where('schedule_id','=',$request->scheduleId)
+        ->where('sheet_id','=',$request->sheetId)
+        ->exists();
+    }
+
+    // 指定したスケジュールの予約済みの席を取ってくる
+    public function reservedSeatForTheMovie(Request $request){
+        return Reservation::select('sheet_id')
+        ->where('schedule_id','=',$request->scheduleId)
+        ->get();
+    }
 }
