@@ -31,7 +31,7 @@ class ReservationRepository {
 
     // すでに席がとられてないか
     public function isReserved(Request $request) {
-        return Reservation::where('schedule_id','=',$request->scheduleId)
+        return Reservation::where('schedule_id','=',$request->schedule_id)
         ->where('sheet_id','=',$request->sheet_id)
         ->exists();
     }
@@ -39,7 +39,7 @@ class ReservationRepository {
     // 指定したスケジュールの予約済みの席を取ってくる
     public function reservedSeatForTheMovie(Request $request){
         return Reservation::select('sheet_id')
-        ->where('schedule_id','=',$request->scheduleId)
+        ->where('schedule_id','=',$request->schedule_id)
         ->get();
     }
 }

@@ -37,7 +37,7 @@
                 <td class='reserved'>{{$sheet->row}}-{{$sheet->column}}</td>
             @else
                 <td>
-                    <a href="/movies/{{$movieId}}/schedules/{{$scheduleId}}/reservations/create?date={{$date}}&sheet_id={{$sheet->id}}">
+                    <a href="/movies/{{$movie_id}}/schedules/{{$schedule_id}}/reservations/create?date={{$date}}&sheet_id={{$sheet->id}}">
                         {{$sheet->row}}-{{$sheet->column}}
                     </a>
                 </td>

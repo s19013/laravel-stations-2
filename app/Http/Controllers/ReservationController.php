@@ -27,12 +27,12 @@ class ReservationController extends Controller
         // 予約済みではないか?
         if ($this->reservationRepository->isReserved($request)) {
             abort(400,'予約済み');
-            // return redirect("/movies/{$request->movieId}",400);
+            // return redirect("/movies/{$request->movie_id}",400);
         }
 
         return view('reservation', [
-            'movieId' => $request->movieId,
-            'scheduleId' => $request->scheduleId,
+            'movie_id' => $request->movie_id,
+            'schedule_id' => $request->schedule_id,
             'date' => $request->date,
             'sheet_id' => $request->sheet_id,
         ]);
@@ -42,7 +42,7 @@ class ReservationController extends Controller
 
         // 重複があるか?
         if ($this->reservationRepository->isExists($request)) {
-            return redirect("/movies/{$request->movieId}");
+            return redirect("/movies/{$request->movie_id}");
         }
 
         $this->reservationRepository->store($request);

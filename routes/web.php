@@ -59,8 +59,8 @@ Route::prefix('/movies')->group(function () {
 Route::get('/sheets',[SheetController::class,'master']);
 
 // 予約
-Route::get('/movies/{movieId}/schedules/{scheduleId}/reservations/create',  [ReservationController::class,'create']);
-Route::get('/movies/{movieId}/schedules/{scheduleId}/sheets',  [SheetController::class,'index']);
+Route::get('/movies/{movie_id}/schedules/{schedule_id}/reservations/create',  [ReservationController::class,'create']);
+Route::get('/movies/{movie_id}/schedules/{schedule_id}/sheets',  [SheetController::class,'index']);
 
 Route::prefix('/reservations')->group(function () {
     Route::post('/store',  [ReservationController::class,'store']);
