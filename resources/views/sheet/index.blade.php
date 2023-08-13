@@ -7,8 +7,19 @@
     <title>Practice</title>
     <link rel="stylesheet" href="\css\app.css">
 </head>
+<style>
+    table td{
+        border-collapse: collapse;
+        border: 1px solid #000000;
+        padding: 5px;
+    }
+    .reserved{
+        background-color: #676767;
+    }
+</style>
 <body>
     <table class="sheetTable">
+        {{-- 最初の横の列の文字 --}}
         @php $switchFlag = "a"; @endphp
 
         <tr>
@@ -21,11 +32,16 @@
                 @php $switchFlag = $sheet->row @endphp
             @endif
 
-            <td>
-                <a href="/movies/{{$movieId}}/schedules/{{$scheduleId}}/reservations/create?date={{$date}}&sheetId={{$sheet->id}}">
-                    {{$sheet->row}}-{{$sheet->column}}
-                </a>
-            </td>
+
+            @if (in_array($sheet->id,$reserved))
+                <td class='reserved'>{{$sheet->row}}-{{$sheet->column}}</td>
+            @else
+                <td>
+                    <a href="/movies/{{$movieId}}/schedules/{{$scheduleId}}/reservations/create?date={{$date}}&sheetId={{$sheet->id}}">
+                        {{$sheet->row}}-{{$sheet->column}}
+                    </a>
+                </td>
+            @endif
 
         @endforeach
         </tr>

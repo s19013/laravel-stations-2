@@ -21,8 +21,14 @@ class ReservationController extends Controller
     public function create(Request $request) {
         // dd(Reservation::all());
 
+        // 必要なクエリはあるか?
+        if (is_null($request->date) || is_null($request->sheetId) ) { abort(400,"クエリ足りない"); }
 
-        if (is_null($request->date) || is_null($request->sheetId) ) { abort(400,); }
+        // 予約済みではないか?
+        if ($this->reservationRepository->isReserved($request)) {
+            abort(400,'予約済み');
+            // return redirect("/movies/{$request->movieId}",400);
+        }
 
         return view('reservation', [
             'movieId' => $request->movieId,
@@ -33,6 +39,7 @@ class ReservationController extends Controller
     }
 
     public function store(CreateReservationRequest $request)  {
+
         // 重複があるか?
         if ($this->reservationRepository->isExists($request)) {
             return redirect("/movies/{$request->movieId}");
