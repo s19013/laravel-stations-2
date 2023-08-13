@@ -42,8 +42,8 @@ Route::prefix('/admin/movies')->group(function () {
     Route::get('/{id}',  [AdminController::class,'specifics']);//なぜかこれが先に読み込まれたことによりcreateに以降できなかったため下に持ってきた
 
     // スケジュール
-    Route::get('{id}/schedules/create',  [AdminScheduleController::class,'create']);
     Route::post('{id}/schedules/store',  [AdminScheduleController::class,'store']);
+    Route::get('{id}/schedules/create',  [AdminScheduleController::class,'create']);
 });
 
 Route::prefix('/admin/schedules')->group(function (){
