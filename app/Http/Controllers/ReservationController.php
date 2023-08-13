@@ -22,7 +22,7 @@ class ReservationController extends Controller
         // dd(Reservation::all());
 
         // 必要なクエリはあるか?
-        if (is_null($request->date) || is_null($request->sheetId) ) { abort(400,"クエリ足りない"); }
+        if (is_null($request->date) || is_null($request->sheet_id) ) { abort(400,"クエリ足りない"); }
 
         // 予約済みではないか?
         if ($this->reservationRepository->isReserved($request)) {
@@ -34,7 +34,7 @@ class ReservationController extends Controller
             'movieId' => $request->movieId,
             'scheduleId' => $request->scheduleId,
             'date' => $request->date,
-            'sheetId' => $request->sheetId,
+            'sheet_id' => $request->sheet_id,
         ]);
     }
 
