@@ -13,6 +13,7 @@ class Genre extends Model
 
     // リレーション
     public function movie() {
+        // これ多分hasmanyだと思う,moviesって書くべきだと思う
         return $this->hasOne(Movie::class);
     }
 }
