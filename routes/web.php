@@ -7,6 +7,7 @@ use App\Http\Controllers\SheetController;
 use App\Http\Controllers\ReservationController;
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminReservationController;
 use App\Http\Controllers\AdminScheduleController;
 
 /*
@@ -30,7 +31,7 @@ Route::get('/practice3', [PracticeController::class,'sample3']);
 Route::get('/getPractice',  [PracticeController::class,'getPractice']);
 
 
-Route::prefix('admin/movies')->group(function () {
+Route::prefix('/admin/movies')->group(function () {
     Route::get('/',  [AdminController::class,'index']);
     Route::get('/create',  [AdminController::class,'create']);
     Route::post('/store',  [AdminController::class,'store']);
@@ -45,10 +46,19 @@ Route::prefix('admin/movies')->group(function () {
     Route::post('{id}/schedules/store',  [AdminScheduleController::class,'store']);
 });
 
-Route::prefix('admin/schedules')->group(function (){
+Route::prefix('/admin/schedules')->group(function (){
     Route::get('/{id}/edit',[AdminScheduleController::class,'edit']);
     Route::patch('/{id}/update',[AdminScheduleController::class,'update']);
     Route::delete('/{id}/destroy',[AdminScheduleController::class,'destroy']);
+});
+
+Route::prefix('/admin/reservations')->group(function (){
+    Route::get('/',  [AdminReservationController::class,'index']);
+    Route::post('/',  [AdminReservationController::class,'store']);
+    Route::get('/create',  [AdminReservationController::class,'create']);
+    Route::get('/{id}',  [AdminReservationController::class,'edit']);
+    Route::put('/{id}',  [AdminReservationController::class,'update']);
+    Route::delete('/{id}',  [AdminReservationController::class,'destroy']);
 });
 
 Route::prefix('/movies')->group(function () {
@@ -65,4 +75,5 @@ Route::get('/movies/{movieId}/schedules/{scheduleId}/sheets',  [SheetController:
 Route::prefix('/reservations')->group(function () {
     Route::post('/store',  [ReservationController::class,'store']);
 });
+
 
