@@ -41,7 +41,7 @@ class ReservationController extends Controller
     public function store(CreateReservationRequest $request)  {
 
         // 重複があるか?
-        if ($this->reservationRepository->isExists($request)) {
+        if ($this->reservationRepository->isDuplication($request)) {
             return redirect("/movies/{$request->movieId}");
         }
 
