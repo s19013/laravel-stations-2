@@ -27,8 +27,8 @@
         </tr>
         @foreach ($reservations as $reservation)
             <tr>
-                <td><a href="/admin/reservations/{{$reservation->id}}">編集</a></td>
-                <td>{{$reservation->date->format('Y-m-d')}}</td>
+                <td><a href="/admin/reservations/{{$reservation->id}}/edit">編集</a></td>
+                <td>{{$reservation->date}}</td>
                 <td>{{$reservation->name}}</td>
                 <td>{{$reservation->email}}</td>
                 <td>{{$reservation->sheet->row}}{{$reservation->sheet->column}}</td>

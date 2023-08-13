@@ -16,7 +16,7 @@
         </ul>
     @endif
     <form action="/admin/reservations/{{$reservation->id}}" method="post">
-        @method('put')
+        @method('patch')
         @csrf
         <input type="hidden" name='reservation_id' value="{{$reservation->id}}">
         <label for="">
