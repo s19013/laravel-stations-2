@@ -24,9 +24,8 @@ class ReservationRepository {
     }
 
     public function update($request) {
-        Reservation::where('id','=',$request->reservation_id)
+        Reservation::where('id','=',$request->id)
         ->update([
-            'date' => $request->date,
             'schedule_id' => $request->schedule_id,
             'sheet_id' => $request->sheet_id,
             'email' => $request->email,
