@@ -50,17 +50,13 @@ class AdminReservationController extends Controller
 
     public function update(UpdateAdminReservationRequest $request)
     {
-        // dateを取ってこないと行けない
-        $date =Schedule::find($request->schedule_id);
-        $request->date = $date->start_time->format('Y-m-d');
-
-        // なんか色々変換が必要,,,書き方とか統一したい
+        // テスト用になんか色々変換が必要,,,書き方とか統一したい
         $request->sheetId = $request->sheet_id;
         $request->scheduleId = $request->schedule_id;
 
-        // 予約済みではないか?
-        if ($this->reservationRepository->isReserved($request)) {
-            abort(400,'予約済み');
+        // 重複してないか?
+        if ($this->reservationRepository->isDuplication($request)) {
+            return \App::abort(400,'予約済み');
         }
 
         $this->reservationRepository->update($request);
