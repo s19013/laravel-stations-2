@@ -32,7 +32,7 @@ class ReservationRepository {
     // すでに席がとられてないか
     public function isReserved(Request $request) {
         return Reservation::where('schedule_id','=',$request->scheduleId)
-        ->where('sheet_id','=',$request->sheet_id)
+        ->where('sheet_id','=',$request->sheetId)
         ->exists();
     }
 

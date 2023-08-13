@@ -19,7 +19,7 @@
         @csrf
         <input type="hidden" name="movie_id" value="{{$movieId}}">
         <input type="hidden" name="schedule_id" value="{{$scheduleId}}">
-        <input type="hidden" name="sheet_id" value="{{$sheet_id}}">
+        <input type="hidden" name="sheet_id" value="{{$sheetId}}">
         <input type="hidden" name="date" value="{{$date}}">
 
         <label for="">
