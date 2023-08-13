@@ -11,12 +11,14 @@ class Reservation extends Model
 
     protected $guarded = ['id','created_at','updated_at'];
 
+    protected $dates = ['date'];
+
     // リレーション
     public function schedule() {
-        return $this->hasOne(Schedule::class);
+        return $this->belongsTo(Schedule::class);
     }
 
     public function sheet() {
-        return $this->hasOne(Sheet::class);
+        return $this->belongsTo(Sheet::class);
     }
 }
