@@ -7,6 +7,13 @@
     <title>Practice</title>
 </head>
 <body>
+    @if ($errors->any())
+        <ul >
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    @endif
     <form action="/admin/schedules/{{$schedule->id}}/update" method="post">
         @csrf
         @method("PATCH")
@@ -49,6 +56,16 @@
             placeholder="例 08:06"
             type="text"
             value="{{old('end_time_time',$schedule->end_time->format('H:i'))}}"
+            required >
+        </label>
+        <br>
+
+        <label for="">
+            スクリーン番号
+            <input
+            name='screen_id'
+            type="number"
+            value="{{old('screen_id',$schedule->screen_id)}}"
             required >
         </label>
 

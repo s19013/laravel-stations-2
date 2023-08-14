@@ -19,6 +19,7 @@
     </a>
     <table>
         <tr>
+            <th>スクリーン番号</th>
             <th>開始</th>
             <th>終了</th>
             <th></th>
@@ -26,6 +27,7 @@
         </tr>
         @foreach ($movie->schedules as $schedule)
             <tr>
+                <td>{{$schedule->screen_id}}</td>
                 <td>{{$schedule->start_time->format('Y-m-d H:i:s')}}</td>
                 <td>{{$schedule->end_time->format('Y-m-d H:i:s')}}</td>
                 <td>

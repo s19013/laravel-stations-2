@@ -25,6 +25,7 @@ class ScheduleRepository {
     {
         Schedule::create([
             'movie_id'   => $request->movie_id,
+            'screen_id'  => $request->screen_id,
             'start_time' => $request->start_time_date." ".$request->start_time_time, // これで登録できるもよう
             'end_time'   => $request->end_time_date." ".$request->end_time_time,
         ]);
@@ -34,6 +35,7 @@ class ScheduleRepository {
     {
         Schedule::where('id','=',$request->id)
             ->update([
+                'screen_id'  => $request->screen_id,
                 'start_time' => $request->start_time_date." ".$request->start_time_time,
                 'end_time'   => $request->end_time_date." ".$request->end_time_time,
             ]);

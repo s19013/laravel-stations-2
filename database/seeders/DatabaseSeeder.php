@@ -26,18 +26,27 @@ class DatabaseSeeder extends Seeder
         // $movie = Movie::factory()->create();
         // $oldSchedule = Schedule::factory()->create([
         //     'movie_id' => $movie->id,
+        //     'screen_id' => 1,
         //     'start_time' => $now->subHours(20),
         //     'end_time'   => $now->subHours(21)
         // ]);
         // $newSchedule = Schedule::factory()->create([
         //     'movie_id' => $movie->id,
+        //     'screen_id' => 1,
         //     'start_time' => new CarbonImmutable('2050-01-01 00:00:00'),
         //     'end_time'   => new CarbonImmutable('2050-01-01 02:00:00')
         // ]);
         // Schedule::factory()->create([
         //     'movie_id' => $movie->id,
-        //     'start_time' => $now->addHours(8),
-        //     'end_time'   => $now->addHours(9)
+        //     'screen_id' => 1,
+        //     'start_time' => new CarbonImmutable('2050-01-02 00:00:00'),
+        //     'end_time'   => new CarbonImmutable('2050-01-02 02:00:00')
+        // ]);
+        // Schedule::factory()->create([
+        //     'movie_id' => $movie->id,
+        //     'screen_id' => 2,
+        //     'start_time' => new CarbonImmutable('2050-01-02 00:00:00'),
+        //     'end_time'   => new CarbonImmutable('2050-01-02 02:00:00')
         // ]);
         // Reservation::insert([
         //     'date' => $newSchedule->start_time,

@@ -58,6 +58,16 @@
             value="{{old('end_time_time')}}"
             required >
         </label>
+        <br>
+
+        <label for="">
+            スクリーン番号
+            <input
+            name='screen_id'
+            type="number"
+            value="{{old('screen_id')}}"
+            required >
+        </label>
 
 
         <input type="submit" value="送信">
