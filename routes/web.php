@@ -28,6 +28,8 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+
 Route::get('/practice',  [PracticeController::class,'sample']);
 Route::get('/practice2', [PracticeController::class,'sample2']);
 Route::get('/practice3', [PracticeController::class,'sample3']);
@@ -71,8 +73,10 @@ Route::prefix('/movies')->group(function () {
 Route::get('/sheets',[SheetController::class,'master']);
 
 // 予約
-Route::get('/movies/{movieId}/schedules/{scheduleId}/reservations/create',  [ReservationController::class,'create']);
-Route::get('/movies/{movieId}/schedules/{scheduleId}/sheets',  [SheetController::class,'index']);
+Route::prefix('/movies/{movieId}/schedules/{scheduleId}')->middleware(['auth'])->group(function (){
+    Route::get('/reservations/create',  [ReservationController::class,'create']);
+    Route::get('/sheets',  [SheetController::class,'index']);
+});
 
 Route::prefix('/reservations')->group(function () {
     Route::post('/store',  [ReservationController::class,'store']);
