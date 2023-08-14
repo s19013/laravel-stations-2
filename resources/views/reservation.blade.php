@@ -24,13 +24,13 @@
 
         <label for="">
             email
-            <input type="email" name="email">
+            <input type="email" name="email" value="{{Auth::user()->email}}">
         </label>
         <br>
 
         <label for="">
             名前
-            <input type="text" name="name">
+            <input type="text" name="name" value="{{Auth::user()->name}}">
         </label>
         <br>
 
