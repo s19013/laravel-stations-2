@@ -25,11 +25,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
 Route::get('/practice',  [PracticeController::class,'sample']);
 Route::get('/practice2', [PracticeController::class,'sample2']);
 Route::get('/practice3', [PracticeController::class,'sample3']);
 Route::get('/getPractice',  [PracticeController::class,'getPractice']);
-
 
 Route::prefix('/admin/movies')->group(function () {
     Route::get('/',  [AdminController::class,'index']);
@@ -77,3 +79,4 @@ Route::prefix('/reservations')->group(function () {
 });
 
 
+require __DIR__.'/auth.php';
