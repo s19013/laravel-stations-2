@@ -7,6 +7,7 @@ use App\Models\Movie;
 use App\Models\Genre;
 use App\Models\Schedule;
 use App\Models\Reservation;
+use App\Models\User;
 
 use Carbon\CarbonImmutable;
 
@@ -48,6 +49,10 @@ class DatabaseSeeder extends Seeder
         //     'start_time' => new CarbonImmutable('2050-01-02 00:00:00'),
         //     'end_time'   => new CarbonImmutable('2050-01-02 02:00:00')
         // ]);
+
+        // $user = User::factory()->create();
+
+
         // Reservation::insert([
         //     'date' => $newSchedule->start_time,
         //     'schedule_id' => $newSchedule->id,
