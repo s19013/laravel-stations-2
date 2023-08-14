@@ -14,10 +14,17 @@ class AddColumSchedulesTable extends Migration
     public function up()
     {
         Schema::table('schedules', function (Blueprint $table) {
-            Schema::table('schedules', function (Blueprint $table) {
-                $table->unsignedTinyInteger('screen_id');
-            });
+            $table->unsignedTinyInteger('screen_id');
         });
+
+        // 既存のデータはとりあえず全部スクリーン1にしとく
+        $allSchedule = Schedule::all();
+        foreach($allSchedule as $schedule){
+            if (empty($schedule->screen_id)) {
+                Schedule::where('id','=',$schedule->id)
+                ->update(['screen_id' => 1]);
+            }
+        }
     }
 
     /**
