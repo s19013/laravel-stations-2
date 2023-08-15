@@ -24,7 +24,7 @@
 
     <table>
         <th></th>
-        <th>スクリーン番号</th>
+        {{-- <th>スクリーン番号</th> --}}
         <th>開始時刻</th>
         <th>終了時刻</th>
         @foreach ($schedules as $schedule)
@@ -34,7 +34,7 @@
                     座席を予約する
                 </a>
             </td>
-            <td>{{$schedule->screen_id}}</td>
+            {{-- <td>{{$schedule->screen_id}}</td> --}}
             <td>{{$schedule->start_time->format('H:i')}}</td>
             <td>{{$schedule->end_time->format('H:i')}}</td>
         </tr>
