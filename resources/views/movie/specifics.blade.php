@@ -14,7 +14,7 @@
     }
 </style>
 <body>
-
+    <x-login-header/>
     <img width="300rem" src="{{$movie->image_url}}" alt="">
     <p>{{$movie->title}}</p>
     <p>{{$movie->genre->name}}</p>

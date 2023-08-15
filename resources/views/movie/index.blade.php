@@ -7,6 +7,7 @@
     <title>Practice</title>
 </head>
 <body>
+    <x-login-header/>
     <div class="searchField">
         <form action="/movies">
             <input type="text" name=keyword value="{{old('keyword')}}">
@@ -29,9 +30,12 @@
     </div>
     <ul>
     @foreach ($movies as $movie)
-        <li><a href="/movies/{{$movie->id}}">タイトル: {{ $movie->title }}</a></li>
-        {{-- <li><img src={{ $movie->image_url }} alt=""></li> --}}
-        <li>{{ $movie->image_url }}</li>
+        <li>
+            <a href="/movies/{{$movie->id}}">
+                <p>タイトル: {{ $movie->title }}</p>
+                <img width="300rem" src={{ $movie->image_url }} alt="">
+            </a>
+        </li>
     @endforeach
     </ul>
 
