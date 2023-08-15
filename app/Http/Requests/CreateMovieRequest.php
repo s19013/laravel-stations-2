@@ -11,10 +11,10 @@ class CreateMovieRequest extends FormRequest
      *
      * @return bool
      */
-    // public function authorize()
-    // {
-    //     return true;
-    // }
+    public function authorize()
+    {
+        return true;
+    }
 
     //  一部を型変換する
     public function validated()
